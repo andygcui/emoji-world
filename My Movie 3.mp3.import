@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8mosf37hl6t6"
+path="res://.godot/imported/My Movie 3.mp3-f79eddb836c108fa2f89dadb1cd42780.mp3str"
+
+[deps]
+
+source_file="res://My Movie 3.mp3"
+dest_files=["res://.godot/imported/My Movie 3.mp3-f79eddb836c108fa2f89dadb1cd42780.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

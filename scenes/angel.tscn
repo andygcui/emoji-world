@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://bjw5n4uiu50lt"]
+
+[ext_resource type="Script" path="res://angel.gd" id="1_spl83"]
+[ext_resource type="Texture2D" uid="uid://cnqnwnu2gbl0q" path="res://angel_idle.png" id="2_0mbx4"]
+[ext_resource type="AudioStream" uid="uid://co5cni8lcetjf" path="res://harp-glissando-with-chimes-sound-effect-128349.mp3" id="3_78qum"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w48yq"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji20y"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(768, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxn8j"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(1536, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64n5r"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(0, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqgac"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(768, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxkcf"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(1536, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33y7f"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(0, 1536, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rrco"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(768, 1536, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvxb6"]
+atlas = ExtResource("2_0mbx4")
+region = Rect2(1536, 1536, 768, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wwq1o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w48yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji20y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxn8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64n5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqgac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxkcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33y7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rrco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvxb6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsoui"]
+radius = 18.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_11aav"]
+radius = 7.07107
+
+[node name="angel" type="CharacterBody2D" groups=["angel"]]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_spl83")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_wwq1o")
+animation = &"idle"
+frame_progress = 0.553488
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_gsoui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_11aav")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_78qum")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

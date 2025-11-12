@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://diw0dtbrnr0m7"]
+
+[ext_resource type="Texture2D" uid="uid://crjo3o2fcbc73" path="res://demon_idle.png" id="1_mxdyr"]
+[ext_resource type="Script" path="res://scenes/demon.gd" id="1_unmtd"]
+[ext_resource type="AudioStream" uid="uid://c7xuowtlogtxu" path="res://demonic-monstrous-scream-190428.mp3" id="3_a6dw7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3uabq"]
+atlas = ExtResource("1_mxdyr")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6cap"]
+atlas = ExtResource("1_mxdyr")
+region = Rect2(768, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gqat"]
+atlas = ExtResource("1_mxdyr")
+region = Rect2(0, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6n25"]
+atlas = ExtResource("1_mxdyr")
+region = Rect2(768, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4xix"]
+atlas = ExtResource("1_mxdyr")
+region = Rect2(0, 1536, 768, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5r3o6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3uabq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6cap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gqat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6n25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4xix")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7gn0"]
+radius = 18.4174
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2vihy"]
+radius = 7.0
+
+[node name="demon" type="CharacterBody2D" groups=["demon"]]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_unmtd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_5r3o6")
+animation = &"idle"
+frame_progress = 0.150127
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_c7gn0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2vihy")
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_a6dw7")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

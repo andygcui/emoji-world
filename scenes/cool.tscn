@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbsq5jgd10l32"]
+
+[ext_resource type="Script" path="res://scenes/cool.gd" id="1_8p0bj"]
+[ext_resource type="Texture2D" uid="uid://dmd5cjh6gv3gv" path="res://cool_idle.png" id="1_xgnrd"]
+[ext_resource type="AudioStream" uid="uid://ds2687tmrp0na" path="res://button-305770.mp3" id="3_y1jw3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfafs"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(0, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eawky"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(768, 0, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48e65"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(0, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vel5e"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(768, 768, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88eji"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(0, 1536, 768, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8ual"]
+atlas = ExtResource("1_xgnrd")
+region = Rect2(768, 1536, 768, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ofvel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfafs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eawky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48e65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vel5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88eji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8ual")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rj7yg"]
+radius = 18.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y5tpi"]
+radius = 6.0
+
+[node name="cool" type="CharacterBody2D" groups=["cool"]]
+scale = Vector2(1.25, 1.25)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_8p0bj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+sprite_frames = SubResource("SpriteFrames_ofvel")
+animation = &"idle"
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+shape = SubResource("CircleShape2D_rj7yg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y5tpi")
+
+[node name="talk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y1jw3")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
