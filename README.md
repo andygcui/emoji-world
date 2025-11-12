@@ -1,5 +1,5 @@
-## Emoji World
-2d world game for video game programming (MBHS)
+## emoji world
+2d world game for video game programming class (mbhs)
 
 sample gameplay: https://www.youtube.com/watch?v=-YiuDrHBZPs&feature=youtu.be 
 
