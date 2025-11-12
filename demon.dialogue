@@ -1,0 +1,11 @@
+~ demon
+
+if Global.number_chests == 9:
+	Demon😈: ARG!!!!! 
+	Demon😈: Now that you have collected all 5 chests...it's time to face me... meet me at the entrance on the bottom right side of the map
+	Demon😈: It should be behind some rocks...press "d" to knock them down
+	=> END
+else:
+	Demon😈: Mwa.. ahha.. haha.. ha ha...
+
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dmnqx2vqw542f"
+path="res://.godot/imported/chests.dialogue-a10d031cbc1ae9f7e6bfb6e0673108b5.tres"
+
+[deps]
+
+source_file="res://chests.dialogue"
+dest_files=["res://.godot/imported/chests.dialogue-a10d031cbc1ae9f7e6bfb6e0673108b5.tres"]
+
+[params]
+
+defaults=true

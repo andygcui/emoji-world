@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://ccvn4s5ipt46b"
+path="res://.godot/imported/demon.dialogue-3d3d80fa565e7df12fb732a53850ad67.tres"
+
+[deps]
+
+source_file="res://demon.dialogue"
+dest_files=["res://.godot/imported/demon.dialogue-3d3d80fa565e7df12fb732a53850ad67.tres"]
+
+[params]
+
+defaults=true

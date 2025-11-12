@@ -1,0 +1,16 @@
+~ chests
+
+if Global.speed_opened == 1:
+	Cool😎: Speed 200%! Don't go too fast!
+
+if Global.music_opened == 1:
+	Cool😎: Omg I love playboi carti!
+
+if Global.regen_opened == 1:
+	Cool😎: All healed!
+
+if Global.background_opened == 1:
+	Cool😎: Good morning!
+
+if Global.invis_opened == 1:
+	Cool😎: Invisible for 15 seconds!
