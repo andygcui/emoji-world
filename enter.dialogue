@@ -1,0 +1,27 @@
+~ enter
+
+Cool😎: [[Youch! | Ow! | Ouch!]]
+- Sorry...where am I...
+	Cool😎: Its ok...welcome to Emoji World!
+	- What do I do around here?
+		Cool😎: Im glad you asked...
+		Cool😎: Emoji World is slowly being taken over by Demon emoji😈...
+		Cool😎: And Angel emoji😇 is the only one that can defeat him!
+		Cool😎: But she is trapped...
+		Cool😎: Help me find each of the 5 chests around the world to summon her back and defeat demon emoji!
+		- How do I play?
+			Cool😎: Use arrow keys to move around and the space bar to attack, open chests, and talk to npcs!
+		- Sounds good, bye!
+	- How do I play?
+		Cool😎: Use arrow keys to move around and the space bar to attack, open chests, and talk to npcs!
+		- What do I do around here?
+			Cool😎: Im glad you asked...
+			Cool😎: Emoji World is slowly being taken over by Demon emoji😈...
+			Cool😎: And Angel emoji😇 is the only one that can defeat him!
+			Cool😎: But she is trapped...
+			Cool😎: Help me find each of the 5 chests around the world to summon her back and defeat demon emoji!
+		- Ok thanks! Bye
+	- Thanks bye => END
+- Oops bye
+	Cool😎: [[See ya! | Bye... | Later!]]
+=> END
